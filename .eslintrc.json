@@ -1,0 +1,86 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier", "hbs", "import"],
+  "extends": [
+    "prettier",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "ignorePatterns": [
+    "./node_modules/*",
+    "*.graphql.ts",
+    "*.graphql",
+    "public/*",
+    "dist/*",
+    "tmp/*"
+  ],
+  "overrides": [
+    {
+      "files": ["*.json", "*.jsonc"],
+      "parser": "jsonc-eslint-parser"
+    },
+    {
+      "files": ["*.js", ".jsx"],
+      "parser": "@babel/eslint-parser"
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "rules": {
+    "no-undef": "error",
+    "react/jsx-key": "error",
+    "prettier/prettier": "error",
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "import/no-cycle": "error",
+    "react/display-name": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-use-before-define": ["error", {}],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": [
+      "warn",
+      {
+        "accessibility": "explicit",
+        "overrides": {
+          "accessors": "explicit",
+          "constructors": "no-public",
+          "methods": "explicit",
+          "properties": "off",
+          "parameterProperties": "off"
+        }
+      }
+    ],
+    "prefer-destructuring": "error"
+  },
+  "globals": {
+    "JSX": "readonly",
+    "React": "readonly"
+  }
+}
